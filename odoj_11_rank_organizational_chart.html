@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohio Department of Justice — 11-Rank Organizational Charter</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .tree-line-v {
+            width: 2px;
+            background: #334155;
+        }
+        .tree-line-h {
+            height: 2px;
+            background: #334155;
+        }
+        .tree-card {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tree-card:hover {
+            transform: translateY(-3px);
+        }
+        .dashed-line-v {
+            border-left: 2px dashed #ca8a04;
+        }
+        .dashed-line-h {
+            border-top: 2px dashed #ca8a04;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center shadow-lg shadow-amber-950/40 border border-amber-400/30">
+                    <i class="fa-solid fa-scale-balanced text-slate-950 text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-serif font-bold tracking-tight text-white flex items-center gap-2">
+                        State of Ohio Department of Justice
+                        <span class="text-xs font-sans px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-medium">11-Rank Model</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Civil & Economic Mandate • Dedicated Litigation Tracks • Anti-Corruption Oversight</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <div class="hidden md:flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60">
+                    <button onclick="setView('tree')" id="btn-view-tree" class="px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-2 bg-amber-500 text-slate-950 font-semibold shadow">
+                        <i class="fa-solid fa-sitemap"></i> Tree View
+                    </button>
+                    <button onclick="setView('table')" id="btn-view-table" class="px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-700/50">
+                        <i class="fa-solid fa-table-list"></i> Roster Table
+                    </button>
+                    <button onclick="setView('workflow')" id="btn-view-workflow" class="px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-700/50">
+                        <i class="fa-solid fa-diagram-project"></i> Boundaries & Intake
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- Top Banner / Mandate Statistics -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Core Roster KPI -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group hover:border-slate-700 transition">
+                <div class="space-y-1">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Core ODOJ Roster</span>
+                    <div class="text-2xl font-bold text-white">15 – 21 <span class="text-xs font-normal text-slate-400">Staff</span></div>
+                    <p class="text-[11px] text-slate-400">11 Ranks across 3 Core Tracks</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500"></div>
+            </div>
+
+            <!-- Total w/ Judges KPI -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group hover:border-slate-700 transition">
+                <div class="space-y-1">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total w/ Judicial</span>
+                    <div class="text-2xl font-bold text-amber-400">17 – 24 <span class="text-xs font-normal text-slate-400">Total</span></div>
+                    <p class="text-[11px] text-slate-400">Includes 2–3 Appointed Judges</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-gavel"></i>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-amber-500"></div>
+            </div>
+
+            <!-- Scope Mandate KPI -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group hover:border-slate-700 transition">
+                <div class="space-y-1">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Jurisdiction Scope</span>
+                    <div class="text-2xl font-bold text-emerald-400">Civil & Econ <span class="text-xs font-normal text-slate-400">Only</span></div>
+                    <p class="text-[11px] text-slate-400">No Criminal Cases / Traffic Tickets</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-emerald-500"></div>
+            </div>
+
+            <!-- Anti-Corruption KPI -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden group hover:border-slate-700 transition">
+                <div class="space-y-1">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Integrity Standard</span>
+                    <div class="text-2xl font-bold text-rose-400">Zero Tolerance</div>
+                    <p class="text-[11px] text-slate-400">1-Yr Jail & Permanent Ban on Fraud</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-rose-500"></div>
+            </div>
+        </div>
+
+        <!-- Controls Bar & Filter -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                <span class="text-xs text-slate-400 font-medium mr-1 flex items-center gap-1.5">
+                    <i class="fa-solid fa-filter text-amber-500"></i> Track Filter:
+                </span>
+                <button onclick="filterTrack('all')" class="track-btn active-track px-3 py-1.5 rounded-lg text-xs font-medium transition bg-slate-800 text-white border border-slate-700" data-track="all">
+                    All Tracks
+                </button>
+                <button onclick="filterTrack('executive')" class="track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent" data-track="executive">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 inline-block mr-1"></span> Executive
+                </button>
+                <button onclick="filterTrack('civil')" class="track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent" data-track="civil">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 inline-block mr-1"></span> Civil Litigation
+                </button>
+                <button onclick="filterTrack('economic')" class="track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent" data-track="economic">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block mr-1"></span> Economic & Debt
+                </button>
+                <button onclick="filterTrack('admin')" class="track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent" data-track="admin">
+                    <span class="w-2 h-2 rounded-full bg-purple-400 inline-block mr-1"></span> Legal Admin
+                </button>
+                <button onclick="filterTrack('judicial')" class="track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent" data-track="judicial">
+                    <span class="w-2 h-2 rounded-full bg-rose-400 inline-block mr-1"></span> Judicial Track
+                </button>
+            </div>
+
+            <!-- Mobile View Switcher & Search -->
+            <div class="flex items-center justify-between w-full md:w-auto gap-3">
+                <div class="relative flex-1 md:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search rank, title, or duty..." class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50">
+                </div>
+                <div class="md:hidden flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60">
+                    <button onclick="setView('tree')" class="px-2.5 py-1 text-xs rounded text-white bg-amber-500"><i class="fa-solid fa-sitemap"></i></button>
+                    <button onclick="setView('table')" class="px-2.5 py-1 text-xs rounded text-slate-300"><i class="fa-solid fa-table-list"></i></button>
+                    <button onclick="setView('workflow')" class="px-2.5 py-1 text-xs rounded text-slate-300"><i class="fa-solid fa-diagram-project"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 1: ORGANIZATIONAL TREE CHART -->
+        <div id="view-tree" class="view-panel transition-all space-y-6">
+            <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 overflow-x-auto min-w-[900px] relative">
+
+                <!-- Executive Command Level (Ranks 1 & 2) -->
+                <div class="flex flex-col items-center space-y-4">
+                    
+                    <!-- Rank 1: AG Card -->
+                    <div class="role-card tree-card cursor-pointer bg-gradient-to-b from-amber-950/40 to-slate-900 border-2 border-amber-500/60 hover:border-amber-400 rounded-2xl p-4 w-80 text-center shadow-xl shadow-amber-950/20 relative group"
+                         onclick="openRoleModal('ag')" data-track="executive" data-role="ag">
+                        <span class="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">Rank 1</span>
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-2 text-lg border border-amber-500/30">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-base">Attorney General</h3>
+                        <p class="text-xs text-amber-400/90 font-medium">Headcount: 1 • Executive Command</p>
+                        <p class="text-[11px] text-slate-400 mt-2 line-clamp-2">Leads ODOJ, sets civil/economic enforcement priorities, argues major state cases, appoints judges with gov allocations.</p>
+                        <div class="mt-3 text-[11px] text-amber-300 font-medium group-hover:underline flex items-center justify-center gap-1">
+                            <span>Click for Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </div>
+                    </div>
+
+                    <div class="tree-line-v h-6"></div>
+
+                    <!-- Rank 2: DAG Card -->
+                    <div class="role-card tree-card cursor-pointer bg-slate-900 border border-slate-700 hover:border-amber-500/60 rounded-2xl p-4 w-80 text-center shadow-lg relative group"
+                         onclick="openRoleModal('dag')" data-track="executive" data-role="dag">
+                        <span class="absolute top-3 right-3 text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Rank 2</span>
+                        <div class="w-9 h-9 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center mx-auto mb-2 text-base border border-slate-700">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3 class="font-serif font-bold text-white text-sm">Deputy Attorney General</h3>
+                        <p class="text-xs text-slate-400 font-medium">Headcount: 1 • Executive Command</p>
+                        <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">Runs daily operations, manages civil/economic dockets, and coordinates intake from Civ Ops & Comptroller.</p>
+                        <div class="mt-2 text-[11px] text-amber-400 font-medium group-hover:underline flex items-center justify-center gap-1">
+                            <span>Click for Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horizontal Connector Line between Command and Tracks -->
+                <div class="relative py-6">
+                    <div class="tree-line-v h-6 mx-auto"></div>
+                    <div class="tree-line-h w-3/4 mx-auto"></div>
+                    
+                    <!-- Separate Dashed Branch Connector for Independent Judicial Track -->
+                    <div class="absolute right-6 top-6 w-32 dashed-line-h"></div>
+                </div>
+
+                <!-- 3 Dedicated Core Tracks + Independent Judicial Branch -->
+                <div class="grid grid-cols-4 gap-6 items-start relative">
+
+                    <!-- TRACK 1: CIVIL LITIGATION -->
+                    <div class="flex flex-col items-center space-y-4 bg-slate-950/40 border border-blue-900/30 p-4 rounded-2xl relative">
+                        <div class="text-center mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-400 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-building-columns"></i> Civil Litigation Track
+                            </span>
+                            <span class="text-[10px] text-slate-400 block mt-0.5">Recommended Staff: 4–6</span>
+                        </div>
+
+                        <!-- Rank 3: Div Chief Civil -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-blue-500/40 hover:border-blue-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('dc_civ')" data-track="civil">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 float-right">Rank 3</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Div Chief — Civil Litigation</h4>
+                            <p class="text-[10px] text-blue-400 text-left font-medium">Headcount: 1</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Leads agency defense (FCSO, OSHP, CFD, ODOT) & civil claims.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 4: Senior Civil Counsel -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-blue-500/30 hover:border-blue-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('sr_civ')" data-track="civil">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 float-right">Rank 4</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Senior Civil Counsel</h4>
+                            <p class="text-[10px] text-blue-400 text-left font-medium">Headcount: 1–2</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Complex agency defense, torts, and high-stakes trials.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 5: Civil Litigation Attorney -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-blue-500/20 hover:border-blue-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('civ_atty')" data-track="civil">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 float-right">Rank 5</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Civil Litigation Attorney</h4>
+                            <p class="text-[10px] text-blue-400 text-left font-medium">Headcount: 2–3</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Standard civil disputes, contract claims, and filings.</p>
+                        </div>
+                    </div>
+
+                    <!-- TRACK 2: ECONOMIC & DEBT ENFORCEMENT -->
+                    <div class="flex flex-col items-center space-y-4 bg-slate-950/40 border border-emerald-900/30 p-4 rounded-2xl relative">
+                        <div class="text-center mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-coins"></i> Economic & Debt Track
+                            </span>
+                            <span class="text-[10px] text-slate-400 block mt-0.5">Recommended Staff: 4–6</span>
+                        </div>
+
+                        <!-- Rank 6: Div Chief Econ -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-emerald-500/40 hover:border-emerald-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('dc_econ')" data-track="economic">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 float-right">Rank 6</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Div Chief — Econ & Debt</h4>
+                            <p class="text-[10px] text-emerald-400 text-left font-medium">Headcount: 1</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Leads debt recovery, business compliance & referrals.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 7: Senior Economic Counsel -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-emerald-500/30 hover:border-emerald-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('sr_econ')" data-track="economic">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 float-right">Rank 7</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Senior Economic Counsel</h4>
+                            <p class="text-[10px] text-emerald-400 text-left font-medium">Headcount: 1–2</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Complex financial lawsuits, debt enforcement & fraud litigation.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 8: Economic & Debt Attorney -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-emerald-500/20 hover:border-emerald-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('econ_atty')" data-track="economic">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 float-right">Rank 8</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Economic & Debt Attorney</h4>
+                            <p class="text-[10px] text-emerald-400 text-left font-medium">Headcount: 2–3</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Litigates unpaid taxes, fee recovery & Civ Ops referrals.</p>
+                        </div>
+                    </div>
+
+                    <!-- TRACK 3: LEGAL ADMINISTRATION -->
+                    <div class="flex flex-col items-center space-y-4 bg-slate-950/40 border border-purple-900/30 p-4 rounded-2xl relative">
+                        <div class="text-center mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-folder-open"></i> Legal Admin Track
+                            </span>
+                            <span class="text-[10px] text-slate-400 block mt-0.5">Recommended Staff: 5–7</span>
+                        </div>
+
+                        <!-- Rank 9: Lead Legal Clerk -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-purple-500/40 hover:border-purple-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('lead_clerk')" data-track="admin">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 float-right">Rank 9</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Lead Legal Clerk</h4>
+                            <p class="text-[10px] text-purple-400 text-left font-medium">Headcount: 1</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Manages court dockets, filing schedules & clerk staff.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 10: Legal Clerk -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-purple-500/30 hover:border-purple-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('clerk')" data-track="admin">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 float-right">Rank 10</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Legal Clerk</h4>
+                            <p class="text-[10px] text-purple-400 text-left font-medium">Headcount: 2–3</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Drafts court filings, evidence packets & hearing logs.</p>
+                        </div>
+
+                        <div class="tree-line-v h-4"></div>
+
+                        <!-- Rank 11: Legal Assistant -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border border-purple-500/20 hover:border-purple-400 rounded-xl p-3.5 w-full text-center shadow group"
+                             onclick="openRoleModal('asst')" data-track="admin">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 float-right">Rank 11</span>
+                            <h4 class="font-semibold text-white text-xs text-left">Legal Assistant</h4>
+                            <p class="text-[10px] text-purple-400 text-left font-medium">Headcount: 2–3</p>
+                            <p class="text-[11px] text-slate-400 text-left mt-1">Entry-level intake, client intake forms & basic support.</p>
+                        </div>
+                    </div>
+
+                    <!-- INDEPENDENT TRACK: APPOINTED JUDGES -->
+                    <div class="flex flex-col items-center space-y-4 bg-amber-950/20 border border-amber-500/30 p-4 rounded-2xl relative">
+                        <div class="text-center mb-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-[#00000] fa-gavel"></i> Independent Judicial
+                            </span>
+                            <span class="text-[10px] text-amber-300/80 block mt-0.5">Gov Budget Allocation: 2–3</span>
+                        </div>
+
+                        <!-- Independent Judges Card -->
+                        <div class="role-card tree-card cursor-pointer bg-slate-900 border-2 border-dashed border-amber-500/60 hover:border-amber-400 rounded-xl p-4 w-full text-center shadow group"
+                             onclick="openRoleModal('judges')" data-track="judicial">
+                            <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 float-right">Judicial</span>
+                            <h4 class="font-serif font-bold text-amber-300 text-xs text-left">Appointed Judges</h4>
+                            <p class="text-[10px] text-amber-400 text-left font-medium">Headcount: 2–3</p>
+                            <p class="text-[11px] text-slate-300 text-left mt-2">Appointed by AG under state budget rules. Operates completely independent of attorney chain of command to preside over civil trials.</p>
+                            <div class="mt-3 pt-2 border-t border-amber-500/20 text-[10px] text-amber-400/90 text-left flex items-center gap-1">
+                                <i class="fa-solid fa-lock text-amber-400"></i> Zero-Tolerance Anti-Corruption Rule
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- VIEW 2: ROSTER TABLE VIEW -->
+        <div id="view-table" class="view-panel hidden space-y-4">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="p-4 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <h3 class="font-serif font-bold text-white text-base">State ODOJ Roster & Rank Breakdown</h3>
+                        <p class="text-xs text-slate-400">Complete summary of 11 core ranks + independent judicial appointees.</p>
+                    </div>
+                    <button onclick="exportCSV()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-2">
+                        <i class="fa-solid fa-download"></i> Export Roster Data
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-slate-950 text-slate-400 text-[11px] uppercase tracking-wider font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4">Rank #</th>
+                                <th class="py-3 px-4">Title</th>
+                                <th class="py-3 px-4">Track / Division</th>
+                                <th class="py-3 px-4">Headcount</th>
+                                <th class="py-3 px-4">Key Responsibilities</th>
+                                <th class="py-3 px-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60" id="table-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 3: INTER-AGENCY WORKFLOW & BOUNDARIES -->
+        <div id="view-workflow" class="view-panel hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- Column 1: Civ Ops Lane -->
+                <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-sm">Civ Ops Lane</h4>
+                            <p class="text-xs text-blue-400">Field Inspections & Audits</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                            <span>Conducts undercover business audits & site inspections.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                            <span>Collects physical receipt evidence and consumer complaints.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-ban text-rose-400 mt-0.5"></i>
+                            <span><strong>No DOJ Overlap:</strong> ODOJ does not employ field investigators.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Comptroller Lane -->
+                <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-vault"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-sm">Comptroller Lane</h4>
+                            <p class="text-xs text-emerald-400">Treasury & Accounting Records</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                            <span>Manages state treasury ledger and tax collection logs.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                            <span>Flags delinquent business taxes & unpaid state fees.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-ban text-rose-400 mt-0.5"></i>
+                            <span><strong>No DOJ Overlap:</strong> ODOJ does not maintain state financial ledgers.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: ODOJ Action Lane -->
+                <div class="bg-slate-900/90 border border-amber-500/40 rounded-2xl p-5 space-y-4">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-slate-800">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-sm">ODOJ Enforcement Lane</h4>
+                            <p class="text-xs text-amber-400">Civil Lawsuits & Prosecution</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-gavel text-amber-400 mt-0.5"></i>
+                            <span>Receives case files referred from Civ Ops or Comptroller.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-gavel text-amber-400 mt-0.5"></i>
+                            <span>Files civil lawsuits for debt recovery or agency defense in court.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-gavel text-amber-400 mt-0.5"></i>
+                            <span>Appoints judges via government budget allocations.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Intake Handoff Workflow Step Diagram -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <h3 class="font-serif font-bold text-white text-base">Standard Referral & Trial Handoff Workflow</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wide">Step 1 • Audit / Intake</span>
+                        <h5 class="text-xs font-bold text-white mt-1">Evidence Gathering</h5>
+                        <p class="text-[11px] text-slate-400 mt-1">Civ Ops audits business or Comptroller identifies unpaid debt/taxes.</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wide">Step 2 • ODOJ Intake</span>
+                        <h5 class="text-xs font-bold text-white mt-1">Deputy AG Case Intake</h5>
+                        <p class="text-[11px] text-slate-400 mt-1">Deputy AG assigns case packet to Civil Litigation or Economic Enforcement.</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-bold text-purple-400 uppercase tracking-wide">Step 3 • Filing</span>
+                        <h5 class="text-xs font-bold text-white mt-1">Clerk Docketing</h5>
+                        <p class="text-[11px] text-slate-400 mt-1">Legal Clerks draft civil summons and schedule hearing on court docket.</p>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40">
+                        <span class="text-[10px] font-bold text-amber-300 uppercase tracking-wide">Step 4 • Trial</span>
+                        <h5 class="text-xs font-bold text-white mt-1">Judicial Hearing</h5>
+                        <p class="text-[11px] text-slate-400 mt-1">Appointed Judge presides independently; renders civil judgment/penalty.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ROLE DETAIL MODAL / DRAWER -->
+    <div id="roleModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-xl w-full p-6 space-y-5 shadow-2xl relative transform scale-95 transition-transform duration-200" id="modalContainer">
+            
+            <button onclick="closeRoleModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-xl shrink-0" id="modalIcon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold px-2 py-0.5 rounded-full" id="modalRankBadge">Rank 1</span>
+                        <span class="text-xs font-medium text-slate-400" id="modalTrackName">Executive Command</span>
+                    </div>
+                    <h2 class="text-xl font-serif font-bold text-white mt-1" id="modalTitle">Attorney General</h2>
+                    <p class="text-xs text-amber-400 font-medium mt-0.5" id="modalHeadcount">Recommended Headcount: 1</p>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                <div class="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-slate-300 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-bullseye text-amber-500"></i> Core Scope & Mandate
+                    </h4>
+                    <p class="text-slate-400 leading-relaxed" id="modalScope">Detailed responsibilities go here...</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-semibold text-slate-500 uppercase">Reports To</span>
+                        <p class="text-white font-medium mt-0.5" id="modalReportsTo">Governor / State Cabinet</p>
+                    </div>
+                    <div class="bg-slate-950/40 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] font-semibold text-slate-500 uppercase">Direct Subordinates</span>
+                        <p class="text-white font-medium mt-0.5" id="modalSubordinates">Deputy AG & Division Chiefs</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+                    <h4 class="font-semibold text-slate-300 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-handshake-angle text-blue-400"></i> Inter-Agency Boundary Rule
+                    </h4>
+                    <p class="text-slate-400 leading-relaxed" id="modalBoundary">Boundary information goes here...</p>
+                </div>
+
+                <div class="bg-rose-950/20 p-3 rounded-xl border border-rose-500/30 flex items-center justify-between text-rose-300">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-cat"></i> Integrity & Conduct Standard:
+                    </span>
+                    <span class="font-bold">Zero-Tolerance Mandate</span>
+                </div>
+            </div>
+
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeRoleModal()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white transition">
+                    Close Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-4 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+            <p>State of Ohio Roleplay • Ohio Department of Justice (ODOJ)</p>
+            <p class="text-slate-400">Civil & Economic Framework • Zero-Tolerance Integrity Policy</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // ODOJ Role Data Dictionary
+        const rolesData = {
+            ag: {
+                rank: "Rank 1",
+                title: "Attorney General",
+                track: "Executive Command",
+                trackKey: "executive",
+                headcount: "1",
+                icon: "fa-user-tie",
+                badgeClass: "bg-amber-500/20 text-amber-300 border border-amber-500/40",
+                iconBg: "bg-amber-500/20 text-amber-400 border border-amber-500/30",
+                scope: "Leads the entire Department of Justice, sets state civil and economic litigation priorities, argues major constitutional/civil cases before judges, and appoints independent judges under state budget rules.",
+                reportsTo: "Governor of Ohio",
+                subordinates: "Deputy AG, Division Chiefs, Appointed Judges",
+                boundary: "Does not interfere in field investigations owned by Civ Ops or financial ledgers owned by the Comptroller."
+            },
+            dag: {
+                rank: "Rank 2",
+                title: "Deputy Attorney General",
+                track: "Executive Command",
+                trackKey: "executive",
+                headcount: "1",
+                icon: "fa-user-shield",
+                badgeClass: "bg-slate-800 text-slate-300 border border-slate-700",
+                iconBg: "bg-slate-800 text-slate-300 border border-slate-700",
+                scope: "Acts as chief operating officer for ODOJ. Manages case intake referred from Civ Ops and Comptroller, oversees court dockets, and coordinates daily litigation schedules.",
+                reportsTo: "Attorney General",
+                subordinates: "Division Chiefs, Lead Legal Clerk",
+                boundary: "Receives complete case referrals from Civ Ops/Comptroller; does not conduct independent field audits."
+            },
+            dc_civ: {
+                rank: "Rank 3",
+                title: "Division Chief — Civil Litigation",
+                track: "Civil Litigation Track",
+                trackKey: "civil",
+                headcount: "1",
+                icon: "fa-building-columns",
+                badgeClass: "bg-blue-500/20 text-blue-300 border border-blue-500/40",
+                iconBg: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+                scope: "Directs the dedicated Civil Litigation team. Leads state defense when agencies (FCSO, OSHP, CFD, ODOT) are sued, handles government contract disputes, and represents state civil claims.",
+                reportsTo: "Deputy Attorney General",
+                subordinates: "Senior Civil Counsel, Civil Litigation Attorneys",
+                boundary: "Defends agencies in civil court; does not handle criminal citations or police disciplinary hearings."
+            },
+            sr_civ: {
+                rank: "Rank 4",
+                title: "Senior Civil Counsel",
+                track: "Civil Litigation Track",
+                trackKey: "civil",
+                headcount: "1–2",
+                icon: "fa-gavel",
+                badgeClass: "bg-blue-500/20 text-blue-300 border border-blue-500/40",
+                iconBg: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+                scope: "Litigates complex agency defense cases, high-value civil damage claims, and contractual disputes against the state.",
+                reportsTo: "Division Chief — Civil Litigation",
+                subordinates: "Civil Litigation Attorneys",
+                boundary: "Focused strictly on civil court defense and litigation."
+            },
+            civ_atty: {
+                rank: "Rank 5",
+                title: "Civil Litigation Attorney",
+                track: "Civil Litigation Track",
+                trackKey: "civil",
+                headcount: "2–3",
+                icon: "fa-scale-unbalanced",
+                badgeClass: "bg-blue-500/20 text-blue-300 border border-blue-500/40",
+                iconBg: "bg-blue-500/20 text-blue-400 border border-blue-500/30",
+                scope: "Drafts civil pleadings, handles routine court motions, represents state agencies in standard civil hearings, and conducts pre-trial discovery.",
+                reportsTo: "Senior Civil Counsel / Division Chief",
+                subordinates: "Legal Clerks (for filing prep)",
+                boundary: "Handles standard civil court dockets; no criminal defense."
+            },
+            dc_econ: {
+                rank: "Rank 6",
+                title: "Division Chief — Economic & Debt Enforcement",
+                track: "Economic & Debt Track",
+                trackKey: "economic",
+                headcount: "1",
+                icon: "fa-coins",
+                badgeClass: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40",
+                iconBg: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
+                scope: "Directs the dedicated Economic & Debt team. Manages civil lawsuits for unpaid debts, tax recovery, business fraud litigation, and Comptroller/Civ Ops referrals.",
+                reportsTo: "Deputy Attorney General",
+                subordinates: "Senior Economic Counsel, Economic Attorneys",
+                boundary: "Litigates financial cases referred by Comptroller/Civ Ops; does not audit treasury accounts directly."
+            },
+            sr_econ: {
+                rank: "Rank 7",
+                title: "Senior Economic Counsel",
+                track: "Economic & Debt Track",
+                trackKey: "economic",
+                headcount: "1–2",
+                icon: "fa-file-invoice-dollar",
+                badgeClass: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40",
+                iconBg: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
+                scope: "Handles high-value commercial fraud lawsuits, major tax recovery proceedings, and complex business contract disputes.",
+                reportsTo: "Division Chief — Economic & Debt",
+                subordinates: "Economic & Debt Attorneys",
+                boundary: "Focuses on trial representation for economic recovery."
+            },
+            econ_atty: {
+                rank: "Rank 8",
+                title: "Economic & Debt Attorney",
+                track: "Economic & Debt Track",
+                trackKey: "economic",
+                headcount: "2–3",
+                icon: "fa-hand-holding-dollar",
+                badgeClass: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40",
+                iconBg: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30",
+                scope: "Files civil collection suits for unpaid state fees/taxes, litigates minor business contract claims, and enforces civil debt judgments.",
+                reportsTo: "Senior Economic Counsel / Division Chief",
+                subordinates: "Legal Clerks (for filing prep)",
+                boundary: "Litigates debt referrals from Comptroller and Civ Ops."
+            },
+            lead_clerk: {
+                rank: "Rank 9",
+                title: "Lead Legal Clerk",
+                track: "Legal Administration Track",
+                trackKey: "admin",
+                headcount: "1",
+                icon: "fa-folder-tree",
+                badgeClass: "bg-purple-500/20 text-purple-300 border border-purple-500/40",
+                iconBg: "bg-purple-500/20 text-purple-400 border border-purple-500/30",
+                scope: "Supervises legal admin operations, manages court docket schedules, assigns case paperwork to clerks, and maintains official civil filing logs.",
+                reportsTo: "Deputy Attorney General",
+                subordinates: "Legal Clerks, Legal Assistants",
+                boundary: "Administrative case tracking and file preparation only."
+            },
+            clerk: {
+                rank: "Rank 10",
+                title: "Legal Clerk",
+                track: "Legal Administration Track",
+                trackKey: "admin",
+                headcount: "2–3",
+                icon: "fa-receipt",
+                badgeClass: "bg-purple-500/20 text-purple-300 border border-purple-500/40",
+                iconBg: "bg-purple-500/20 text-purple-400 border border-purple-500/30",
+                scope: "Drafts formal civil summonses, organizes evidence packets, logs hearing minutes, and assists attorneys during court trials.",
+                reportsTo: "Lead Legal Clerk",
+                subordinates: "Legal Assistants",
+                boundary: "Supports legal filing; does not argue cases in court."
+            },
+            asst: {
+                rank: "Rank 11",
+                title: "Legal Assistant",
+                track: "Legal Administration Track",
+                trackKey: "admin",
+                headcount: "2–3",
+                icon: "fa-clipboard-list",
+                badgeClass: "bg-purple-500/20 text-purple-300 border border-purple-500/40",
+                iconBg: "bg-purple-500/20 text-purple-400 border border-purple-500/30",
+                scope: "Entry-level administrative support role handling citizen intake forms, hearing scheduling, and basic case archive maintenance.",
+                reportsTo: "Legal Clerk / Lead Legal Clerk",
+                subordinates: "None (Entry Point)",
+                boundary: "Administrative training role for newer community members."
+            },
+            judges: {
+                rank: "Judicial",
+                title: "Appointed Judges",
+                track: "Independent Judicial Track",
+                trackKey: "judicial",
+                headcount: "2–3",
+                icon: "fa-gavel",
+                badgeClass: "bg-amber-500/20 text-amber-300 border border-amber-500/40",
+                iconBg: "bg-amber-500/20 text-amber-400 border border-amber-500/30",
+                scope: "Independent court officers appointed by the AG with state budget allocations. Presides over civil trials, business disputes, and debt collection cases.",
+                reportsTo: "State Constitution / Independent Judicial Branch",
+                subordinates: "None (Independent Bench)",
+                boundary: "Operates completely independent of the Attorney General's attorney/clerk chain of command. Bound by strict zero-tolerance integrity policy (1-year jail for corruption)."
+            }
+        };
+
+        // Render Roster Table
+        function renderTable() {
+            const tbody = document.getElementById('table-body');
+            tbody.innerHTML = '';
+
+            Object.keys(rolesData).forEach(key => {
+                const item = rolesData[key];
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-800/40 transition cursor-pointer';
+                tr.onclick = () => openRoleModal(key);
+                tr.setAttribute('data-track', item.trackKey);
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-bold text-amber-400">${item.rank}</td>
+                    <td class="py-3 px-4 font-semibold text-white flex items-center gap-2">
+                        <i class="fa-solid ${item.icon} text-slate-400 text-xs"></i> ${item.title}
+                    </td>
+                    <td class="py-3 px-4">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-medium ${item.badgeClass}">${item.track}</span>
+                    </td>
+                    <td class="py-3 px-4 font-medium text-slate-300">${item.headcount}</td>
+                    <td class="py-3 px-4 text-slate-400 line-clamp-1">${item.scope}</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="event.stopPropagation(); openRoleModal('${key}')" class="text-amber-400 hover:text-amber-300 text-xs font-semibold">
+                            View <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // View Switching
+        function setView(view) {
+            document.querySelectorAll('.view-panel').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`view-${view}`).classList.remove('hidden');
+
+            // Button highlights
+            ['tree', 'table', 'workflow'].forEach(v => {
+                const btn = document.getElementById(`btn-view-${v}`);
+                if (btn) {
+                    if (v === view) {
+                        btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-2 bg-amber-500 text-slate-950 font-semibold shadow";
+                    } else {
+                        btn.className = "px-3.5 py-1.5 rounded-lg text-xs font-medium transition flex items-center gap-2 text-slate-300 hover:text-white hover:bg-slate-700/50";
+                    }
+                }
+            });
+        }
+
+        // Track Filtering
+        function filterTrack(track) {
+            // Update filter buttons
+            document.querySelectorAll('.track-btn').forEach(btn => {
+                if (btn.getAttribute('data-track') === track) {
+                    btn.className = "track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition bg-slate-800 text-white border border-slate-700 shadow";
+                } else {
+                    btn.className = "track-btn px-3 py-1.5 rounded-lg text-xs font-medium transition text-slate-400 hover:text-white hover:bg-slate-800/60 border border-transparent";
+                }
+            });
+
+            // Filter Tree Cards
+            document.querySelectorAll('.role-card').forEach(card => {
+                const cardTrack = card.getAttribute('data-track');
+                if (track === 'all' || cardTrack === track) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'none';
+                    card.style.pointerEvents = 'auto';
+                } else {
+                    card.style.opacity = '0.25';
+                    card.style.pointerEvents = 'none';
+                }
+            });
+
+            // Filter Table Rows
+            document.querySelectorAll('#table-body tr').forEach(row => {
+                const rowTrack = row.getAttribute('data-track');
+                if (track === 'all' || rowTrack === track) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Logic
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            
+            document.querySelectorAll('.role-card').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.opacity = '1';
+                    card.style.pointerEvents = 'auto';
+                } else {
+                    card.style.opacity = '0.2';
+                    card.style.pointerEvents = 'none';
+                }
+            });
+
+            document.querySelectorAll('#table-body tr').forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Logic
+        function openRoleModal(key) {
+            const data = rolesData[key];
+            if (!data) return;
+
+            document.getElementById('modalRankBadge').innerText = data.rank;
+            document.getElementById('modalRankBadge').className = `text-xs font-bold px-2.5 py-0.5 rounded-full ${data.badgeClass}`;
+            document.getElementById('modalTrackName').innerText = data.track;
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalHeadcount').innerText = `Recommended Headcount: ${data.headcount}`;
+            document.getElementById('modalScope').innerText = data.scope;
+            document.getElementById('modalReportsTo').innerText = data.reportsTo;
+            document.getElementById('modalSubordinates').innerText = data.subordinates;
+            document.getElementById('modalBoundary').innerText = data.boundary;
+
+            const iconContainer = document.getElementById('modalIcon');
+            iconContainer.className = `w-12 h-12 rounded-2xl flex items-center justify-center text-xl shrink-0 ${data.iconBg}`;
+            iconContainer.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+
+            const modal = document.getElementById('roleModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+        }
+
+        function closeRoleModal() {
+            const modal = document.getElementById('roleModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+        }
+
+        // Export Data Helper
+        function exportCSV() {
+            let csv = "Rank,Title,Track,Headcount,Responsibilities\n";
+            Object.keys(rolesData).forEach(key => {
+                const r = rolesData[key];
+                csv += `"${r.rank}","${r.title}","${r.track}","${r.headcount}","${r.scope.replace(/"/g, '""')}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'Ohio_DOJ_11_Rank_Roster.csv');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            renderTable();
+        };
+    </script>
+</body>
+</html>
